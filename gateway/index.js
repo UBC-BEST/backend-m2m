@@ -1,4 +1,5 @@
 const express = require("express");
+
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "0.0.0.0";
 
@@ -6,7 +7,6 @@ const { declareTestRoutes } = require("./api/declareRoutes");
 
 const app = express();
 
-// Init application
 app.promiseListen = function promiseListen(port, host) {
   return new Promise((resolve, reject) =>
     this.listen(port, host, (err) => (!err ? resolve() : reject(err)))
@@ -23,6 +23,6 @@ const runServer = async () => {
 };
 
 module.exports = {
-    app,
-    runServer
-}
+  app,
+  runServer,
+};

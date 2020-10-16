@@ -3,7 +3,7 @@ const { MongoClient } = require("mongodb");
 let database;
 const connectMongo = async (dbName) => {
   try {
-    uri = process.env.MONGO_DB.replace(
+    const uri = process.env.MONGO_DB.replace(
       "username:password",
       `${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASS}`
     );
@@ -11,7 +11,7 @@ const connectMongo = async (dbName) => {
     database = client.db(dbName);
     console.log("[Server Startup] Successfully connected to MongoDB Atlas");
   } catch (e) {
-    console.log("[Server Startup] Failed to connect to MongoDB Atlas\n" + e);
+    console.log(`[Server Startup] Failed to connect to MongoDB Atlas\n${e}`);
   }
 };
 

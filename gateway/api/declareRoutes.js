@@ -6,6 +6,11 @@ const routerOptions = {
   strict: true,
 };
 
+/**
+ * Adds test routes to the provided app.
+ * @param  {Express} app  Express app for current server.
+ * @return {undefined}
+ */
 const declareTestRoutes = (app) => {
   const route = "/test";
   const router = Router(routerOptions);
