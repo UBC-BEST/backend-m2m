@@ -41,7 +41,7 @@ jobs:
     - name: Run Flask Server 
       run: |
         # stop the build if flask server fails
-        set FLASK_APP=hello.py
+        set FLASK_APP=app.py
         set FLASK_ENV=development
         flask run
     - name: Test with pytest
