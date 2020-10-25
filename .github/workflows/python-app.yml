@@ -40,7 +40,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run Flask Server 
       run: |
-      # stop the build if flask server fails
+        # stop the build if flask server fails
+        set FLASK_APP=hello.py
+        set FLASK_ENV=development
+        flask run
     - name: Test with pytest
       run: |
         pytest test.py
