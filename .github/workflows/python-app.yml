@@ -43,6 +43,6 @@ jobs:
       # stop the build if flask server fails
     - name: Test with pytest
       run: |
-        pytest
+        pytest test.py
       
 
