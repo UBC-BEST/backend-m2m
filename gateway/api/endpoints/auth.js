@@ -34,7 +34,7 @@ const signInHandler = async (req, res) => {
  * Example helper function with no arguments.
  * @return {String} 'Sign up!'.
  */
-const logoutFunction = () => "Sign up!";
+const signOutFunction = () => "Sign out!";
 
 /**
  * Logout handler for handling logout.
@@ -42,8 +42,8 @@ const logoutFunction = () => "Sign up!";
  * @param {Response} res Response to be sent to the user.
  * @return {undefined}
  */
-const logoutHandler = async (req, res) => {
-  res.status(200).send(logoutHandler());
+const signOutHandler = async (req, res) => {
+  res.status(200).send(signOutFunction());
 };
 
 module.exports = {
@@ -51,6 +51,6 @@ module.exports = {
   signUpFunction,
   signInHandler, 
   signInFunction, 
-  logoutHandler, 
-  logoutFunction
+  signOutHandler, 
+  signOutFunction
 };
