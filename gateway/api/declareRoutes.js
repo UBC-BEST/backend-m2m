@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { exampleHandler } = require("./endpoints/example");
-const { signUpHandler, signInHandler, logoutHandler, signOutHandler, } = require("./endpoints/auth")
 
 const routerOptions = {
   mergeParams: true,
@@ -17,10 +16,6 @@ const declareTestRoutes = (app) => {
   const router = Router(routerOptions);
 
   router.get("/", exampleHandler);
-  
-  router.get("/signup", signUpHandler)
-  router.get("/signin", signInHandler)
-  router.get("/signout", signOutHandler)
 
   app.use(route, router);
 

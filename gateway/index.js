@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "0.0.0.0";
 
 const { declareTestRoutes } = require("./api/declareRoutes");
+const { declareAuthRoutes } = require("./api/declareAuthRoutes");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.promiseListen = function promiseListen(port, host) {
 
 const runServer = async () => {
   // declare routes
+  declareAuthRoutes(app);
   declareTestRoutes(app);
 
   // start server
