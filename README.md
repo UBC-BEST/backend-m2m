@@ -43,6 +43,8 @@ Once they are installed, you can use `npm run dev` to start a development server
 ### Processing Service (Python)
 
 Before installing dependencies, we need to create a [virtual environment](https://www.geeksforgeeks.org/create-virtual-environment-using-venv-python/) for our Python Project, so that there are no conflicts between modules on your system, and modules specific to this project.
+
+#### MacOS and Linux
 ```bash
 cd processing-service
 python -m venv venv
@@ -52,6 +54,15 @@ This creates a new Python virtual environment in a 'venv' folder. You can activa
 source venv/bin/activate 
 pip install -r requirements.txt
 ```
+
+#### Sad Windows Gang 
+```
+cd processing-service
+py -3 -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 Once the dependencies are done, you can run the app using `python app.py`
 
 You can exit the virtual environment by typing `deactivate` in a terminal running the virtualenv. 
