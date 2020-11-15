@@ -1,0 +1,56 @@
+version: '3'
+
+networks:
+  app-network:
+      driver: bridge
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.9
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: test
+      MONGO_INITDB_ROOT_PASSWORD: test123
+    ports:
+      - 27018:27018
+    volumes:
+      - ./build/mongodb:/data/db
+    networks: 
+      - app-network
+
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    working_dir: /usr/src/app/gateway
+    volumes:
+      - ./gateway:/usr/src/app/gateway
+    networks:
+      - app-network
+    environment:
+      - MESSAGE_QUEUE=amqp://rabbitmq
+      - MONGO_DB=mongodb://test:test123@localhost:27018
+    links:
+      - rabbitmq
+      - mongodb
+
+  processing-service:
+    build:
+      context: ./processing-service
+      dockerfile: Dockerfile
+
+    working_dir: /usr/src/app/processing-service
+    volumes:
+      - ./processing-service:/usr/src/app/processing-service
+    networks:
+      - app-network
+    environment:
+      - MESSAGE_QUEUE=amqp://rabbitmq
+      - MONGO_DB=mongodb://test:test123@localhost:27018
+    links:
+      - rabbitmq
+      - mongodb
