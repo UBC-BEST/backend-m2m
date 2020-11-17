@@ -254,10 +254,5 @@ dmypy.json
 cython_debug/
 
 # .env with auth0 secrets
-gateway/.env
+**/.env
 
-
-https://auth0.com/docs/quickstart/webapp/nodejs/01-login
-
-Configure express-session
-In app.js, include the express-session module and configure it. The secret parameter is a secret string that is used to sign the session ID cookie. Please use a custom value.
