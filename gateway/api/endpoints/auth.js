@@ -1,5 +1,5 @@
 /**
- * Example helper function with no arguments.
+ * TODO
  * @return {String} 'Sign up!'.
  */
 const signUpFunction = () => "Sign up!";
@@ -15,7 +15,7 @@ const signUpHandler = async (req, res) => {
 };
 
 /**
- * Example helper function with no arguments.
+ * TODO
  * @return {String} 'Sign in!'.
  */
 const signInFunction = () => "Sign in!";
@@ -31,8 +31,8 @@ const signInHandler = async (req, res) => {
 };
 
 /**
- * Example helper function with no arguments.
- * @return {String} 'Sign up!'.
+ * TODO
+ * @return {String} 'Sign out!'.
  */
 const signOutFunction = () => "Sign out!";
 

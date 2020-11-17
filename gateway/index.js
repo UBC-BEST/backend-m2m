@@ -5,6 +5,8 @@ const HOST = process.env.HOST || "0.0.0.0";
 
 const { declareTestRoutes } = require("./api/declareRoutes");
 const { declareAuthRoutes } = require("./api/declareAuthRoutes");
+const { declareGameRoutes } = require("./api/declareGameRoutes");
+const { declareUserRoutes } = require("./api/declareUserRoutes");
 
 const app = express();
 
@@ -18,6 +20,8 @@ const runServer = async () => {
   // declare routes
   declareAuthRoutes(app);
   declareTestRoutes(app);
+  declareGameRoutes(app);
+  declareUserRoutes(app);
 
   // start server
   await app.promiseListen(PORT, HOST);

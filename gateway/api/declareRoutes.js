@@ -1,10 +1,13 @@
+
 const { Router } = require("express");
-const { exampleHandler } = require("./endpoints/example");
+const { exampleHandler, privateHandler} = require("./endpoints/example");
+const { checkJwt } = require("./middleware/middleware")
 
 const routerOptions = {
   mergeParams: true,
   strict: true,
 };
+
 
 /**
  * Adds test routes to the provided app.
@@ -16,6 +19,7 @@ const declareTestRoutes = (app) => {
   const router = Router(routerOptions);
 
   router.get("/", exampleHandler);
+  router.get("/private", checkJwt, privateHandler);
 
   app.use(route, router);
 
