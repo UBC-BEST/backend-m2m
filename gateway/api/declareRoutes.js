@@ -19,7 +19,7 @@ const declareTestRoutes = (app) => {
   const router = Router(routerOptions);
 
   router.get("/", exampleHandler);
-  router.get("/private", checkJwt, privateHandler);
+  router.post("/private", checkJwt, privateHandler);
 
   app.use(route, router);
 

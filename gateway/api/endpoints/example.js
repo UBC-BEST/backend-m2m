@@ -1,3 +1,9 @@
+let items = [
+	'Feed the dogs',
+	'Mow the lawn',
+	'Buy pizza'
+];
+
 /**
  * Example helper function with no arguments.
  * @return {String} 'Hello world!'.
@@ -11,14 +17,14 @@ const exampleFunction = () => "Hello world!";
  * @return {undefined}
  */
 const exampleHandler = async (req, res) => {
-  res.status(200).send(exampleFunction());
+  res.status(200).send(items);
 };
 
 /**
  * Example helper function with no arguments.
  * @return {String} 'Private function!'.
  */
-const privateFunction = () => "Private function!";
+const privateFunction = (req) => items.push(req.body);
 
 /**
  * Example handler for handling a given function (private).
@@ -27,7 +33,7 @@ const privateFunction = () => "Private function!";
  * @return {undefined}
  */
 const privateHandler = async (req, res) => {
-  res.status(200).send(privateFunction);
+  res.status(200).send(privateFunction(req));
 };
 
 module.exports = {
