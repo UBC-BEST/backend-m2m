@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const { check } = require("prettier");
 const { returnUserInfoHandler, addUserInfoHandler, updateUserInfoHandler, } = require("./endpoints/user")
 const { checkJwt } = require("./middleware/middleware")
 

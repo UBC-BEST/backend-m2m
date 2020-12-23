@@ -2,7 +2,7 @@
  * TODO
  * @return {String} 'Sign up!'.
  */
-const signUpFunction = () => "Sign up!";
+const registerFunction = () => "Sign up!";
 
 /**
  * Sign up handler for handling first time sign up.
@@ -10,15 +10,15 @@ const signUpFunction = () => "Sign up!";
  * @param {Response} res Response to be sent to the user.
  * @return {undefined}
  */
-const signUpHandler = async (req, res) => {
-  res.status(200).send(signUpFunction());
+const registerHandler = async (req, res) => {
+  res.status(200).send(registerFunction());
 };
 
 /**
  * TODO
  * @return {String} 'Sign in!'.
  */
-const signInFunction = () => "Sign in!";
+const loginFunction = () => "Sign in!";
 
 /**
  * Sign in handler for handling sign in.
@@ -26,8 +26,8 @@ const signInFunction = () => "Sign in!";
  * @param {Response} res Response to be sent to the user.
  * @return {undefined}
  */
-const signInHandler = async (req, res) => {
-  res.status(200).send(signInFunction());
+const loginHandler = async (req, res) => {
+  res.status(200).send(loginFunction());
 };
 
 /**
@@ -46,11 +46,30 @@ const signOutHandler = async (req, res) => {
   res.status(200).send(signOutFunction());
 };
 
+/**
+ * TODO
+ * @return {String} 'Sign out!'.
+ */
+const refeshFunction = () => "Refresh!";
+
+/**
+ * Logout handler for handling logout.
+ * @param {Request} req Request received by the server.
+ * @param {Response} res Response to be sent to the user.
+ * @return {undefined}
+ */
+const refreshHandler = async (req, res) => {
+  res.status(200).send(refeshFunction());
+};
+
+
 module.exports = {
-  signUpHandler,
-  signUpFunction,
-  signInHandler, 
-  signInFunction, 
+  refreshHandler,
+  refeshFunction,
+  loginHandler,
+  loginFunction,
+  registerHandler, 
+  registerFunction, 
   signOutHandler, 
   signOutFunction
 };

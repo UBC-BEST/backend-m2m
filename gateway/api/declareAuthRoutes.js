@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const { signUpHandler, signInHandler, signOutHandler, } = require("./endpoints/auth")
+const { registerHandler, loginHandler, signOutHandler, refreshHandler } = require("./endpoints/auth")
+const { checkJwt } = require("./middleware/middleware")
 
 const routerOptions = {
   mergeParams: true,
@@ -15,8 +16,9 @@ const declareAuthRoutes = (app) => {
   const route = "/auth";
   const router = Router(routerOptions);
   
-  router.get("/signup", signUpHandler)
-  router.get("/signin", signInHandler)
+  router.get("/register", registerHandler)
+  router.get("/login", loginHandler)
+  router.get("/refresh", checkJwt, refreshHandler)
   router.get("/signout", signOutHandler)
 
   app.use(route, router);
