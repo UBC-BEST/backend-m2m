@@ -1,4 +1,8 @@
-todo_dictionary={ "todo":["pet the cat", "walk the dog", "feed fish"] };
+todo_dictionary=[
+  {"todo":["pet the cat"]},
+  {"todo":["feed fish"]},
+  {"todo":["walk dog"]},
+];
 
 /**
  * Example helper function with no arguments.
