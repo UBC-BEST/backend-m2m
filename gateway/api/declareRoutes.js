@@ -1,5 +1,7 @@
 const { Router } = require("express");
-const { exampleHandler } = require("./endpoints/example");
+const jwt = require("express-jwt");
+const { exampleHandler, examplePrivateHandler } = require("./endpoints/example");
+const { jwtCheck } = require("./middleware/middleware")
 
 const routerOptions = {
   mergeParams: true,
@@ -16,6 +18,7 @@ const declareTestRoutes = (app) => {
   const router = Router(routerOptions);
 
   router.get("/", exampleHandler);
+  router.get("/private", jwtCheck, examplePrivateHandler);
 
   app.use(route, router);
 
