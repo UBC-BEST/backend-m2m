@@ -2,9 +2,9 @@ const { exampleFunction, examplePrivateFunction } = require("../../api/endpoints
 
 test("unit test for testHandler", () => {
   expect(exampleFunction()).toStrictEqual([
-    {"todo":["pet the cat"]},
-    {"todo":["feed fish"]},
-    {"todo":["walk dog"]},
+    {"todo":"pet the cat"},
+    {"todo":"feed fish"},
+    {"todo":"walk dog"},
   ]);
 });
 
