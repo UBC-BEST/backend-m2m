@@ -1,8 +1,10 @@
+todo_dictionary={ "todo":["pet the cat", "walk the dog", "feed fish"] };
+
 /**
  * Example helper function with no arguments.
  * @return {String} 'Hello world!'.
  */
-const exampleFunction = () => ["walk the dog", "feed fish", "pet the cat"];
+const exampleFunction = () => todo_dictionary;
 
 /**
  * Example handler for handling a given function.
