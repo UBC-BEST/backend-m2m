@@ -15,9 +15,6 @@ app.promiseListen = function promiseListen(port, host) {
 };
 
 const runServer = async () => {
-  // wait for MongoDB connection
-  console.log(`[Server Startup] Waiting for MongoDB`);
-  await connectMongo("mvp");
 
   // declare routes
   declareTestRoutes(app);
