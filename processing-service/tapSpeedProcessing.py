@@ -4,15 +4,13 @@ import matplotlib.pyplot as plt
 import scipy as pylab
 from scipy.signal import find_peaks, peak_prominences, argrelextrema
 
-
-
-def finger_tap_sped_processing(data, tapSpeeds):
+def tapSpeedProcessing(data, tapSpeeds):
     newTapSpeeds = np.zeros(5)
-    minResist = 1000 #resistance measured in ohms, above this value there is no force being applied
+    minResist = 1000 #resistance in ohms
     set_prominence = 4000000 # prominence of peaks to filter noise from FFT
 
-    data.pop(0) # remove the headers
-    data = np.matrix.transpose(np.asmatrix(data)) # transpose the matrix
+    data.pop(0)
+    data = np.matrix.transpose(np.asmatrix(data))
     data = data.astype(np.float)
 
     for i in range(1,4):
@@ -20,7 +18,7 @@ def finger_tap_sped_processing(data, tapSpeeds):
         transform = np.fft.fft(next_finger)
         length = len(transform[0])
     
-        #freq = np.fft.fftfreq(len(transform[0]), data[0,1]-data[0,0]) # could change this to frequency of sampling
+        #freq = np.fft.fftfreq(len(transform[0]), data[0,1]-data[0,0]) # change this to frequency of sampling
         fourier = np.abs(transform[0])[0:round(length/2)]
         
         peaks, _ = find_peaks(fourier, prominence= set_prominence)
