@@ -2,6 +2,7 @@ todo_dictionary=[
   {"todo":"pet the cat"},
   {"todo":"feed fish"},
   {"todo":"walk dog"},
+  {"todo":"yeet dab"},
 ];
 
 /**
