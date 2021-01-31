@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 todo_dictionary=[
   {"todo":"pet the cat"},
   {"todo":"feed fish"},
   {"todo":"walk dog"},
   {"todo":"yeet dab"},
+=======
+const todoDictionary = [
+  { todo: "pet the cat" },
+  { todo: "feed fish" },
+  { todo: "walk dog" },
+>>>>>>> 3a4950302300fe9dcbf8c5f45530d453db122ad1
 ];
 
 /**
  * Example helper function with no arguments.
  * @return {String} 'Hello world!'.
  */
-const exampleFunction = () => todo_dictionary;
+const exampleFunction = () => todoDictionary;
 
 /**
  * Example handler for handling a given function.
@@ -41,5 +48,5 @@ module.exports = {
   exampleHandler,
   exampleFunction,
   examplePrivateHandler,
-  examplePrivateFunction
+  examplePrivateFunction,
 };

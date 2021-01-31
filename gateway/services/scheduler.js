@@ -1,6 +1,6 @@
 const { Agenda } = require("agenda");
 const { publishFailedEvents } = require("./rabbit");
-const { getMongoDb } = require("./database");
+const { getMongoDb } = require("./database/database");
 
 const agenda = new Agenda({
   db: { mongo: getMongoDb(), collection: "scheduler" },
