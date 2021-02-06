@@ -5,6 +5,7 @@ test("unit test for testHandler", () => {
     {"todo":"pet the cat"},
     {"todo":"feed fish"},
     {"todo":"walk dog"},
+    {"todo":"yeet dab"},
   ]);
 });
 
