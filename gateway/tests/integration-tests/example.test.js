@@ -1,18 +1,21 @@
 const request = require("supertest");
-const { app } = require("../../index");
-const { declareTestRoutes } = require("../../api/declareRoutes");
 const { connectMongo } = require("../../services/database/database");
 
-beforeAll(() => {
-  declareTestRoutes(app);
-  connectMongo('test');
+let app;
+beforeAll(async (done) => {
+  let db = await connectMongo("test");
+  const { expressApp } = require("../../index");
+  const { declareTestRoutes } = require("../../api/declareRoutes");
+  app = expressApp;
+  declareTestRoutes(expressApp)
+  done();
 });
 
 describe("Integration Test Example", () => {
-  test("It should response the GET method", done => {
+  test("It should response the GET method", (done) => {
     request(app)
       .get("/test")
-      .then(response => {
+      .then((response) => {
         expect(response.statusCode).toBe(200);
         done();
       });

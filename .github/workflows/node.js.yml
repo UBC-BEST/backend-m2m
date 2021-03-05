@@ -31,4 +31,9 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - run: npm run test:unit
-    - run: npm run test:integration
+    - name: Integration tests 
+      env:
+        MONGO_DB: ${{ secrets.MONGO_DB }}
+        MONGO_DB_USER: ${{ secrets.MONGO_DB_USER }}
+        MONGO_DB_PASS: ${{ secrets.MONGO_DB_PASS }}
+      run: npm run test:integration
