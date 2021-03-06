@@ -1,14 +1,5 @@
 const {MongoClient, ObjectId} = require('mongodb');
 
-/**
- * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
- * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
- */
-const uri = "mongodb+srv://M2M_Co_Lead:aRgN8XxxXVh9F4dx@cluster0.zr7b9.mongodb.net/<dbname>?retryWrites=true&w=majority";
-
-
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
 async function createUser(client, newUser){
     const result = await client.db("app").collection("User").insertOne(newUser);
     console.log(`New user created with the following id: ${result.insertedId}`);
