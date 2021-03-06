@@ -33,7 +33,9 @@ services:
       - app-network
     environment:
       - MESSAGE_QUEUE=amqp://rabbitmq
-      - MONGO_DB=mongodb://test:test123@localhost:27018
+      - MONGO_DB=mongodb://username:password@localhost:27018
+      - MONGO_DB_USER=test
+      - MONGO_DB_PASS=test123
     links:
       - rabbitmq
       - mongodb

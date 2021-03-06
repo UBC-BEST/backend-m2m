@@ -15,6 +15,9 @@ app.promiseListen = function promiseListen(port, host) {
 };
 
 const runServer = async () => {
+  // connect to MongoDB
+  await connectMongo("gateway");
+
   // declare routes
   declareTestRoutes(app);
   declareUserRoutes(app);
@@ -22,9 +25,6 @@ const runServer = async () => {
   // start server
   await app.promiseListen(PORT, HOST);
   console.log(`[Server Startup] Running on http://${HOST}:${PORT}`);
-
-  // connect to MongoDB
-  await connectMongo("gateway");
 };
 
 module.exports = {
