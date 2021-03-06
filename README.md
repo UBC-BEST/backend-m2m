@@ -29,6 +29,31 @@ You can develop most features without installing Rabbit locally (for now, as we 
 
 To start, clone the repository and cd to the root of the repository in the terminal.
 
+### Docker (NEW)
+First install docker here: https://docs.docker.com/get-docker/
+
+```bash
+$ cd backend-m2m
+$ docker pull mongo:latest
+$ docker pull rabbitmq:latest 
+```
+
+`docker pull <service>:latest` ensures that you are using the most updated version of these services. You don't need to do this but you can if you want to. 
+
+After you can run:
+
+```bash
+$ docker-compose up
+```
+
+You will get alot of crazy stuff in your terminal but don't worry, this is normal. 
+
+To see a list of running containers: 
+
+```bash
+$ docker container ls
+```
+
 ### Gateway (Node)
 
 First install all dependencies:
