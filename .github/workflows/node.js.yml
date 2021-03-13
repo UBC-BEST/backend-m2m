@@ -31,4 +31,3 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - run: npm run test:unit
-    - run: npm run test:integration
