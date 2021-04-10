@@ -3,8 +3,10 @@ const axios = require("axios");
 if (process.env.NODE_ENV !== "prod") {
   require("dotenv").config();
 }
+const { verifyToken, getAdmin } = require("../../services/auth");
 
-const getIdToken = async (uid, admin) => {
+const getIdToken = async (uid) => {
+  const admin = getAdmin();
   const customToken = await admin.auth().createCustomToken(uid);
   const data = {
     token: customToken,
@@ -24,14 +26,9 @@ const getIdToken = async (uid, admin) => {
 
 test("auth unit test", async () => {
   // eslint-disable-next-line global-require
-  const admin = require("firebase-admin");
 
-  admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
-  });
-
-  const testToken = await getIdToken("aZa2bYjc7Rav1Karp4pqlb2J5pK2", admin);
+  const testToken = await getIdToken("aZa2bYjc7Rav1Karp4pqlb2J5pK2");
   console.log(`TESTTOKEN: ${testToken}`);
-  const ticket = await admin.auth().verifyIdToken(testToken);
-  expect(ticket.email).toBe("test@test.com");
+  const user = await verifyToken(testToken);
+  expect(user.email).toBe("test@test.com");
 });
