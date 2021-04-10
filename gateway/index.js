@@ -1,5 +1,10 @@
 const express = require("express");
 
+if (process.env.NODE_ENV !== "prod") {
+  // eslint-disable-next-line global-require
+  require("dotenv").config();
+}
+
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "0.0.0.0";
 
