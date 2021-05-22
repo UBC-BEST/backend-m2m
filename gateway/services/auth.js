@@ -1,6 +1,11 @@
 const admin = require("firebase-admin");
 
-const creds = Buffer.from(process.env.GOOGLE_APPLICATION_CREDENTIALS, "base64");
+let creds = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+if (!creds || creds === "") {
+  console.log(`Google Credentials Not found`);
+}
+
+creds = JSON.parse(Buffer.from(creds, "base64"));
 
 admin.initializeApp({
   credential: admin.credential.cert(JSON.parse(creds)),
