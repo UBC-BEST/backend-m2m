@@ -5,7 +5,7 @@ if (!creds || creds === "") {
   console.log(`Google Credentials Not found`);
 }
 
-creds = JSON.parse(Buffer.from(creds, "base64"));
+creds = JSON.parse(JSON.stringify(Buffer.from(creds, "base64").toString()));
 
 admin.initializeApp({
   credential: admin.credential.cert(JSON.parse(creds)),
